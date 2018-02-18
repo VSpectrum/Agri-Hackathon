@@ -63,9 +63,9 @@ html {
   color: #FFFFFF;
 }
 .cropselection .croplist {
+  max-height: 520px;
   overflow-y: auto;
   margin-top: 50px;
-  height: 520px;
 }
 .cropselection .croplist .crop.suggested img {
   -webkit-transition: border 0.3s ease-in-out;
@@ -98,6 +98,41 @@ html {
   display: block;
 }
 
+.valveassignment {
+  background: url("../img/growth.jpg") center center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.valveassignment .background-overlay {
+  background: rgba(0, 0, 0, 0.29);
+  height: 100%;
+}
+.valveassignment .valvelist {
+  margin-top: 100px;
+}
+.valveassignment .valvelist .tile-wrapper .tile {
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  background: #FFFFFF;
+  border-radius: 2px;
+  margin-top: 30px;
+  padding: 15px;
+}
+.valveassignment .valvelist .tile-wrapper select {
+  border-radius: 2px;
+  text-indent: 10px;
+  height: 43px;
+  width: 100%;
+}
+.valveassignment .valvelist .tile-wrapper label {
+  font-shize: 14px;
+  display: block;
+}
+.valveassignment .valvelist .tile-wrapper h2 {
+  font-size: 24px;
+}
+
 .logo a {
   background: url("../img/rsg.png") center center no-repeat;
   background-size: 100%;
@@ -121,7 +156,8 @@ a.login:hover {
   text-decoration: none;
 }
 
-a.next {
+a.next,
+a.submit {
   text-decoration: none;
   background: #FFFFFF;
   text-align: center;
@@ -135,10 +171,12 @@ a.next {
   height: 44px;
   float: right;
 }
-a.next.disabled {
+a.next.disabled,
+a.submit.disabled {
   color: #d2d2d2;
 }
-a.next:hover {
+a.next:hover,
+a.submit:hover {
   text-decoration: none;
 }
 

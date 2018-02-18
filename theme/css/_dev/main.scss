@@ -88,9 +88,9 @@ html {
     }
     
     .croplist {
+        max-height: 520px;
         overflow-y: auto;
         margin-top: 50px;
-        height: 520px;
         
         .crop {
             
@@ -131,6 +131,52 @@ html {
     }
 }
 
+.valveassignment {
+    background: url('../img/growth.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+    .background-overlay {
+        background: rgba(0, 0, 0, 0.29);
+        height: 100%;
+    }
+    
+    .content {
+        
+    }
+    
+    .valvelist {
+        margin-top: 100px;
+        
+        .tile-wrapper {
+            .tile {
+                @include box-shadow-jutsu (0, 1px, 4px, rgba(0,0,0,0.2));
+                background: #FFFFFF;
+                border-radius: 2px;
+                margin-top: 30px;
+                padding: 15px;
+            }
+
+            select {
+                border-radius: 2px;
+                text-indent: 10px;
+                height: 43px;
+                width: 100%;
+            }
+
+            label {
+                font-shize: 14px;
+                display: block;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+        }
+    }
+    
+}
+
 header {
     //
 }
@@ -159,7 +205,8 @@ a.login {
     }
 }
 
-a.next {
+a.next,
+a.submit {
     text-decoration: none;
     background: #FFFFFF;
     text-align: center;
