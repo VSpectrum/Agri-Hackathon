@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Mixins [`MIXN]
+   ========================================================================== */
+@mixin margin-setter-jutsu ($margin, $value) {
+    $margin: $value;
+}
+
+@mixin box-shadow-jutsu ($x, $y, $blur, $color) {
+    -webkit-box-shadow: $x $y $blur $color;
+    -moz-box-shadow: $x $y $blur $color;
+    box-shadow: $x $y $blur $color;
+}
+
+@mixin transition-jutsu ($attr, $duration, $mode) {
+    -webkit-transition: $attr $duration $mode;
+    -moz-transition: $attr $duration $mode;
+    transition: $attr $duration $mode;
+}
+
+/* ==========================================================================
+   Content [`CONT]
+   ========================================================================== */
+
+html {
+    height: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        max-width: 1336px;
+    }
+}
+
+.homepage {
+    background: url('../img/spraycan.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+    .background-overlay {
+        background: rgba(0, 0, 0, 0.5);
+        height: 100%;
+    }
+    
+    .content {
+        text-align: center;
+        color: #FFFFFF;
+        
+        h2 {
+            font-family: 'Arial Black', Arial, sans-serif;
+            margin-top: 177px;
+            font-weight: 900;
+            font-size: 72px;  
+        }
+        
+        p {
+            margin-top: 55px;
+            font-size: 18px;
+        }
+    }
+}
+
+.cropselection {
+    background: url('../img/bg_wood.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    
+    .background-overlay {
+        background: rgba(0, 0, 0, 0.37);
+        height: 100%;
+    }
+    
+    .filter input[type="text"] {
+        @include box-shadow-jutsu (0, 1px, 4px, rgba(0,0,0,0.2));
+        border-radius: 2px;
+        text-indent: 20px;
+        margin-top: 60px;
+        height: 60px;
+        border: none;
+        width: 100%;
+    }
+    
+    .content {
+        
+    }
+    
+    .croplist {
+        margin-top: 50px;
+        
+        .crop {
+            
+            &.suggested {
+                img {
+                    @include transition-jutsu (border, 0.3s, ease-in-out);
+                    border: 15px solid #FFFFFF;
+                }
+            }
+            
+            &.selected {
+                img {
+                    @include transition-jutsu (border, 0.3s, ease-in-out);
+                    border: 15px solid gold;
+                }
+            }
+            
+            &:hover {
+                cursor: pointer;
+            }
+            
+            img {
+                @include transition-jutsu (border, 0.3s, ease-in-out);
+                border: 0px solid gold;
+                border-radius: 30px;
+            }
+        }
+        
+        input[type="checkbox"] {
+            display: none;
+        }
+        
+        label {
+            text-align: center;
+            color: #FFFFFF;
+            display: block;
+        }
+    }
+}
+
+header {
+    //
+}
+
+.logo a {
+    background: url('../img/rsg.png') center center no-repeat;
+    background-size: 100%;
+    white-space: nowrap;
+    text-indent: 100%;
+    margin-top: 35px;
+    overflow: hidden;
+    display: block;
+    width: 80px;
+    height: 82px;
+}
+
+a.login, 
+a.next {
+    text-decoration: none;
+    text-align: right;
+    margin-top: 70px;
+    display: block;
+    color: #FFFFFF;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a.cta-btn {
+    @include transition-jutsu (background, 0.1s, ease-in-out);
+    @include box-shadow-jutsu (0, 1px, 4px, rgba(0,0,0,0.2));
+    text-decoration: none;
+    background: #00e676;
+    border-radius: 2px;
+    line-height: 60px;
+    font-weight: 700;
+    font-size: 18px;
+    display: block;
+    color: #FFFFFF;
+    margin: 0 auto;
+    
+    margin-top: 70px;
+    height: 60px;
+    width: 340px;
+    
+    &:hover {
+        @include transition-jutsu (background, 0.1s, ease-in-out);
+        background: lighten(#00e676, 10%);
+        text-decoration: none;
+        color: darkslategrey;
+    }
+}
+
+.image-container img {
+    width: 100%;
+}

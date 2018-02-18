@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Mixins [`MIXN]
+   ========================================================================== */
+/* ==========================================================================
+   Content [`CONT]
+   ========================================================================== */
+html {
+  height: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1336px;
+  }
+}
+.homepage {
+  background: url("../img/spraycan.jpg") center center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.homepage .background-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+.homepage .content {
+  text-align: center;
+  color: #FFFFFF;
+}
+.homepage .content h2 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  margin-top: 177px;
+  font-weight: 900;
+  font-size: 72px;
+}
+.homepage .content p {
+  margin-top: 55px;
+  font-size: 18px;
+}
+
+.cropselection {
+  background: url("../img/bg_wood.jpg") center center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.cropselection .background-overlay {
+  background: rgba(0, 0, 0, 0.37);
+  height: 100%;
+}
+.cropselection .filter input[type="text"] {
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  text-indent: 20px;
+  margin-top: 60px;
+  height: 60px;
+  border: none;
+  width: 100%;
+}
+.cropselection .croplist {
+  margin-top: 50px;
+}
+.cropselection .croplist .crop.suggested img {
+  -webkit-transition: border 0.3s ease-in-out;
+  -moz-transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  border: 15px solid #FFFFFF;
+}
+.cropselection .croplist .crop.selected img {
+  -webkit-transition: border 0.3s ease-in-out;
+  -moz-transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  border: 15px solid gold;
+}
+.cropselection .croplist .crop:hover {
+  cursor: pointer;
+}
+.cropselection .croplist .crop img {
+  -webkit-transition: border 0.3s ease-in-out;
+  -moz-transition: border 0.3s ease-in-out;
+  transition: border 0.3s ease-in-out;
+  border: 0px solid gold;
+  border-radius: 30px;
+}
+.cropselection .croplist input[type="checkbox"] {
+  display: none;
+}
+.cropselection .croplist label {
+  text-align: center;
+  color: #FFFFFF;
+  display: block;
+}
+
+.logo a {
+  background: url("../img/rsg.png") center center no-repeat;
+  background-size: 100%;
+  white-space: nowrap;
+  text-indent: 100%;
+  margin-top: 35px;
+  overflow: hidden;
+  display: block;
+  width: 80px;
+  height: 82px;
+}
+
+a.login,
+a.next {
+  text-decoration: none;
+  text-align: right;
+  margin-top: 70px;
+  display: block;
+  color: #FFFFFF;
+}
+a.login:hover,
+a.next:hover {
+  text-decoration: none;
+}
+
+a.cta-btn {
+  -webkit-transition: background 0.1s ease-in-out;
+  -moz-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  background: #00e676;
+  border-radius: 2px;
+  line-height: 60px;
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  color: #FFFFFF;
+  margin: 0 auto;
+  margin-top: 70px;
+  height: 60px;
+  width: 340px;
+}
+a.cta-btn:hover {
+  -webkit-transition: background 0.1s ease-in-out;
+  -moz-transition: background 0.1s ease-in-out;
+  transition: background 0.1s ease-in-out;
+  background: #1aff8f;
+  text-decoration: none;
+  color: darkslategrey;
+}
+
+.image-container img {
+  width: 100%;
+}
