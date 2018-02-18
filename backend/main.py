@@ -51,11 +51,14 @@ def on_disconnect(client, userdata, rc):
     logger.warning('Disconnected from mqtt server on %s:%d\n', mqtt_host, mqtt_port)
 
 def on_message(client, userdata, msg):
+   
     if msg.topic == soil_info_topic:
 
         soil_info = json.loads(msg.payload)
+        print soil_info
         valve_name = soil_info['valve']
         valve_info = get_valve_info(valve_name)
+        interval = get_interval(valve_info['crop'])
 
         valve_info['ph_level'] = soil_info['ph_level']
         valve_info['moisture_level'] = soil_info['moisture_level']
@@ -69,24 +72,22 @@ def on_message(client, userdata, msg):
             valve_info['last_on'] = 0
 
         required_moisture_level = get_required_moisture_level(valve_info['crop'])
-        current_moisture_level = valve_info['moisture_level']
-        last = valve_info['last_on']
+        current_moisture_level =float(valve_info['moisture_level'])
+        last_on = valve_info['last_on']
 
-        #If valve k is on and required_moisture_level <= current_moisture_level:
-           #turn valve k off
         if valve_info['status'] == 'on' and required_moisture_level <= current_moisture_level:
             valve_info['status'] = 'off'
-            client.publish('valves/%s' % valve_name, payload="off")
+            logger.info('Turning valve off!')
+            client.publish('soilmanager/%s/control' % valve_name, payload="off")
 
 
-        #If valve k is off and current_moisture_level < required_moisture_level and last_time + interval <= current_time:
-           #last_time = current_time
-           #turn valve k on
-
-        if valve_info['status'] == 'off' and current_moisture_level < required_moisture_level and last_time + interval <= current_time:
+        if valve_info['status'] == 'off' and current_moisture_level < required_moisture_level and last_on + interval <= current_time:
             valve_info['status'] = 'on'
-            client.publish('valves/%s' % valve_name, payload="on")
+            logger.info('Turning valve on!')
+            client.publish('soilmanager/%s/control' % valve_name, payload="on")
 
+
+        db.valve_info.save(valve_info)    
 
     else:
         logger.warning('Unhandled topic!', extra=msg)
@@ -97,6 +98,7 @@ client = mqtt.Client()
 client.username_pw_set(username, password)
 
 client.on_connect = on_connect
+client.on_message = on_message
 
 client.connect(mqtt_host, mqtt_port)
 
