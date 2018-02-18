@@ -119,8 +119,18 @@
                 oncomplete.then(function () {
                     loadValveList(GLOBAL_ARR);
                 });
+                break;   
+            case '#/success':
+                $.get('../views/success.html', function (data) {
+                    $('body').attr({'class': 'success'}).html(data);
+                });
+                
                 break;
         }
+    }
+    
+    function success () {
+        location.href = "#/success";
     }
     
     $(document).on('input', '.filter input[type="text"]', function () {
@@ -181,7 +191,9 @@
                 var cp = $(field).attr('data-crop'),
                     vv = $(field).attr('data-valve');
                 
-                $.post('').done();
+                console.log(cp, vv);
+                
+                success();
             });
         }
     });
