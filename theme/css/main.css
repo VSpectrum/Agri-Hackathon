@@ -133,6 +133,30 @@ html {
   font-size: 24px;
 }
 
+.success {
+  background: url("../img/growth.jpg") center center no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.success .background-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+.success .content {
+  text-align: center;
+  color: #FFFFFF;
+}
+.success .content h2 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  margin-top: 177px;
+  font-weight: 900;
+  font-size: 72px;
+}
+.success .content p {
+  margin-top: 55px;
+  font-size: 18px;
+}
+
 .logo a {
   background: url("../img/rsg.png") center center no-repeat;
   background-size: 100%;
