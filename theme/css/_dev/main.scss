@@ -73,18 +73,24 @@ html {
         @include box-shadow-jutsu (0, 1px, 4px, rgba(0,0,0,0.2));
         border-radius: 2px;
         text-indent: 20px;
-        margin-top: 60px;
+        margin-top: 30px;
         height: 60px;
         border: none;
         width: 100%;
     }
     
     .content {
-        
+        h2 {
+            text-align: center;
+            margin-top: 100px;
+            color: #FFFFFF;
+        }
     }
     
     .croplist {
+        overflow-y: auto;
         margin-top: 50px;
+        height: 520px;
         
         .crop {
             
@@ -141,13 +147,35 @@ header {
     height: 82px;
 }
 
-a.login, 
-a.next {
+a.login {
     text-decoration: none;
     text-align: right;
     margin-top: 70px;
     display: block;
     color: #FFFFFF;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+a.next {
+    text-decoration: none;
+    background: #FFFFFF;
+    text-align: center;
+    border-radius: 2px;
+    line-height: 44px;
+    font-weight: 900;
+    margin-top: 70px;
+    display: block;
+    color: #000000;
+    width: 100px;
+    height: 44px;
+    float: right;
+    
+    &.disabled {
+        color: #d2d2d2;
+    }
     
     &:hover {
         text-decoration: none;

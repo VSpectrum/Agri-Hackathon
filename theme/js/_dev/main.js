@@ -40,6 +40,27 @@
         });
     }
     
+    function route () {
+        switch(location.hash) {
+            case '':
+            case '#/':
+            case '#/home':
+                $.get('../views/home.html', function (data) {
+                    $('body').attr({'class': 'homepage'}).html(data);
+                });
+                break;
+            case '#/crops':
+                var oncomplete = $.get('../views/crops.html', function (data) {
+                    $('body').attr({'class': 'cropselection'}).html(data);
+                });
+                
+                oncomplete.then(function () {
+                    loadCropList();
+                });
+                break;
+        }
+    }
+    
     $(document).on('input', '.filter input[type="text"]', function () {
         var crop = $('.croplist .crop'),
             str = $(this).val().toLowerCase();
@@ -60,17 +81,35 @@
         
     });
     
+    $(document).on('click', '.next', function (e) {
+        if ($(this).hasClass('disabled')) {
+            console.log('Disabled No Action Taken...');
+            e.preventDefault();
+        } else {
+            e.preventDefault();
+            var selected = $('.selected');
+            console.log(selected);
+        }
+    });
+    
     $(document).on('click', '.crop', function () {
         $(this).toggleClass('selected');
+        
+        var selected = $('.selected').length > 0 ? true : false;
+        
+        if (selected) {
+            $('.next').removeClass('disabled');
+        } else {
+            $('.next').addClass('disabled');
+        }
     });
     
     $(document).ready(function () {
-        console.log('READY');
-        loadCropList();
+        route();
     });
 
     $(window).on('hashchange', function () {
-        console.log('LOL', location.hash); 
+        route();
     });
 	
 }(this));
