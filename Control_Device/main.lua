@@ -24,17 +24,14 @@ do
 
     wifi.sta.config(station_cfg)
     wifi.sta.connect()
-    
-    filler = "abcdefghijklmnopqrstuvwxyz1234567890-_"
 
-
-    mq = mqtt.Client("Unit1", 6, "teamrocket", "blastoff")
-    mq:lwt("soilmanager/Unit1/".."status", "OFFLINE",0,0)
+    mq = mqtt.Client("unit1", 6, "teamrocket", "blastoff")
+    mq:lwt("soilmanager/unit1/".."status", "OFFLINE",0,0)
     mq:on("connect", function(client) 
         mqtt_online = true
-        mq:publish("soilmanager/Unit1/".."status", "ONLINE",0,0)
+        mq:publish("soilmanager/unit1/".."status", "ONLINE",0,0)
 
-        mq:subscribe("soilmanager/Unit1/control",0, function(conn) 
+        mq:subscribe("soilmanager/unit1/control",0, function(conn) 
             print("subscribed") 
         end)
     end)
@@ -42,7 +39,7 @@ do
         mqtt_online = false
     end)
     mq:on("message", function(client, topic, data)
-        if (topic == 'soilmanager/Unit1/control') then     
+        if (topic == 'soilmanager/unit1/control') then     
             if (data ~= nil) then
                 switec.setup(0, 6, 7, 8, 2, 1000)
                 switec.moveto(0, 1500, function ()
@@ -74,7 +71,7 @@ do
                 mq:connect("198.58.96.40","8880",0,0)
             else
                 local diff = 0.16+math.floor( math.random()*100 + 0.5 ) / 100  
-                local soil_info = '{'..'"Valve":"K", "Moisture_Level":"'..diff..'", "pH_Level":"5.5"}'
+                local soil_info = '{'..'"valve":"K", "moisture_level":"'..diff..'", "ph_level":"5.5"}'
                 mq:publish("soilmanager/soil_info", soil_info,0,0)
             end
         end
