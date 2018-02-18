@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+            html {
+              font-family: sans-serif;
+              -webkit-text-size-adjust: 100%;
+                  -ms-text-size-adjust: 100%;
+            }
+
+            body {
+              margin: 0;
+            }
+
+            * {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #333;
+                background: #508DD2;
+                position: relative;
+            }
+
+            h1 {
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            @media (min-width: 768px) {
+              .container {
+                width: 750px;
+              }
+            }
+            @media (min-width: 992px) {
+              .container {
+                width: 970px;
+              }
+            }
+            @media (min-width: 1200px) {
+              .container {
+                width: 1170px;
+              }
+            }
+
+            .row {
+              margin-right: -15px;
+              margin-left: -15px;
+            }
+
+            .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5,  .col-md-6,
+            .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+              position: relative;
+              min-height: 1px;
+              padding-right: 15px;
+              padding-left: 15px;
+            }
+
+
+            @media (min-width: 992px) {
+              .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+              .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+                float: left;
+              }
+              .col-md-12 {
+                width: 100%;
+              }
+              
+              .col-md-8 {
+                width: 66.66666667%;
+              }
+              
+              .col-md-6 {
+                width: 50%;
+              }
+              
+              .col-md-4 {
+                width: 33.33333333%;
+              }
+              
+              .col-md-2 {
+                width: 16.66666667%;
+              }
+              .col-md-1 {
+                width: 8.33333333%;
+              }
+                          
+              .col-md-offset-6 {
+                margin-left: 50%;
+              }
+              .col-md-offset-5 {
+                margin-left: 41.66666667%;
+              }
+              .col-md-offset-4 {
+                margin-left: 33.33333333%;
+              }
+              .col-md-offset-3 {
+                margin-left: 25%;
+              }
+              .col-md-offset-2 {
+                margin-left: 16.66666667%;
+              }
+              .col-md-offset-1 {
+                margin-left: 8.33333333%;
+              }
+            }
+
+            .clearfix:before,.clearfix:after,.container:before,
+            .container:after,.row:before,.row:after {
+              display: table;
+              content: " ";
+            }
+
+            .clearfix:after,.container:after,.row:after {
+              clear: both;
+            }   
+
+            .context-wrapper {
+                padding-bottom: 40px;
+                position: relative;
+                margin-top: 100px;
+                float: right;
+                height: 100%;
+                width: 100%;
+            }       
+
+            .context-wrapper .context {
+                height: 100%;
+                width: 100%;
+            }
+
+            .context-wrapper .context.background {
+                background: #FFFFFF;
+                border-radius: 4px;
+                position: absolute;
+                opacity: 0.65;
+                z-index: -1;
+            }
+
+            .context-wrapper .context.content {
+                padding: 40px;
+            }
+            .btn {
+              display: inline-block;
+              padding: 6px 12px;
+              margin-bottom: 0;
+              font-size: 14px;
+              font-weight: normal;
+              line-height: 1.42857143;
+              text-align: center;
+              white-space: nowrap;
+              vertical-align: middle;
+              -ms-touch-action: manipulation;
+                  touch-action: manipulation;
+              cursor: pointer;
+              -webkit-user-select: none;
+                 -moz-user-select: none;
+                  -ms-user-select: none;
+                      user-select: none;
+              background-image: none;
+              border: 1px solid transparent;
+              border-radius: 4px;
+              margin-left: 10px;
+              margin-top: 20px;
+              float: right;
+            }
+            .btn:focus,
+            .btn:active:focus,
+            .btn.active:focus,
+            .btn.focus,
+            .btn:active.focus,
+            .btn.active.focus {
+              outline: 5px auto -webkit-focus-ring-color;
+              outline-offset: -2px;
+            }
+            .btn:hover,
+            .btn:focus,
+            .btn.focus {
+              color: #333;
+              text-decoration: none;
+            }
+            .btn:active,
+            .btn.active {
+              background-image: none;
+              outline: 0;
+              -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+                      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+            }
+            .btn-default {
+              color: #333;
+              background-color: #fff;
+              border-color: #ccc;
+            }   
+            .btn-default:focus,
+            .btn-default.focus {
+              color: #333;
+              background-color: #e6e6e6;
+              border-color: #8c8c8c;
+            }
+            .btn-default:hover {
+              color: #333;
+              background-color: #e6e6e6;
+              border-color: #adadad;
+            }                   
+            .btn-primary {
+              color: #fff;
+              background-color: #337ab7;
+              border-color: #2e6da4;
+            }
+            .btn-primary:focus,
+            .btn-primary.focus {
+              color: #fff;
+              background-color: #286090;
+              border-color: #122b40;
+            }
+            .btn-primary:hover {
+              color: #fff;
+              background-color: #286090;
+              border-color: #204d74;
+            }           
+
+            label {
+                line-height: 44px;
+            }
+
+            input[type="text"] {
+                text-indent: 20px;
+                float: right;
+                border: none;
+                height: 44px;
+                width: 234px;
+            }
+
+            h1 {
+                margin: 0 0 20px 0;
+            }
+
+            p {
+                float: left;
+                width: 100%;
+                margin: 0;
+            }
+
+            .context-wrapper p:not(:last-child) {
+                margin-bottom: 10px;
+            }
+
+            .context-wrapper p:last-child {
+                margin-bottom: 20px;
+            }
+
+            .meter-reading {
+                display: none;
+            }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="context-wrapper">
+                        <div class="context background"></div>
+                        <div class="context content">
+                            <h1>Network Setup Mode</h1>
+                            <p>Enter your 2.4 GHz WiFi network so this device can communicate online</p>
+                            <form action="" method="GET" enctype="application/x-www-form-urlencoded">   
+                                <p>
+                                    <label>Wireless Network Name:</label>
+                                    <input type="text" name="networkName" value="{{networkName}}">                              
+                                </p>
+
+                                <p>
+                                    <label>Wireless Network Password: </label>
+                                    <input type="text" name="networkPassword" value="{{networkPassword}}">                              
+                                </p>
+                        
+                                <input type="submit" class="btn btn-primary"></input>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          function getAjax(url, success) {
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            xhr.open('GET', url);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState>3 && xhr.status==200) success(xhr.responseText);
+            };
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.send();
+            return xhr;
+          }
+        </script>
+
+    </body>
+</html>
