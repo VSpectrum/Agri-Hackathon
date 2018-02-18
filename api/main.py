@@ -1,6 +1,8 @@
 from flask import Flask, make_response
 from flask_restful import reqparse, abort, Api, Resource
 from pymongo import MongoClient
+from flask_cors import CORS
+
 from bson.json_util import loads, dumps
 
 def output_json(obj, code, headers=None):
@@ -14,6 +16,8 @@ def output_json(obj, code, headers=None):
     return resp
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 DEFAULT_REPRESENTATIONS = {'application/json': output_json}
 
